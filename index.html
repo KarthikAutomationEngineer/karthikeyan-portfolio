@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  Karthikeyan Shanmugaraj — Portfolio (Apple-style edition)
+  ----------------------------------------------------------------------------
+  Files:   index.html (structure & content) · styles.css (design) · script.js (behaviour)
+  Host:    100% static — drop the folder on Netlify / GitHub Pages / Vercel.
+
+  QUICK EDIT GUIDE
+    1. Resume ........ keep your PDF in this folder as Karthikeyan_Resume.pdf
+                       (or change CONFIG.resumeFile at the top of script.js)
+    2. GitHub ........ set CONFIG.github in script.js (footer link updates automatically)
+    3. Project links . search this file for  href="#"  — each is a placeholder that shows a
+                       "Link coming soon" toast until you put a real URL in.
+    4. Awards ........ copy an  <a class="award">  block and drop the image in assets/awards/
+    5. Colours ....... all in :root and the .tone-* classes at the top of styles.css
+  ============================================================================
+-->
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Karthikeyan Shanmugaraj — Automation Engineer &amp; Playwright Framework Architect</title>
+  <meta name="description" content="Karthikeyan Shanmugaraj — Automation Engineer and Playwright framework architect. End-to-end test automation, Azure DevOps CI/CD, AI-assisted testing and enterprise-scale regression.">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark light">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Karthikeyan Shanmugaraj — Automation Engineer &amp; Playwright Framework Architect">
+  <meta property="og:description" content="End-to-end test automation, Azure DevOps CI/CD, AI-assisted testing and enterprise-scale regression.">
+
+  <!-- Inline SVG favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230A84FF'/%3E%3Cstop offset='.55' stop-color='%23BF5AF2'/%3E%3Cstop offset='1' stop-color='%23FF375F'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='22.5' font-family='Arial,sans-serif' font-size='19' font-weight='700' text-anchor='middle' fill='white'%3EK%3C/text%3E%3C/svg%3E">
+
+  <!-- Fonts: Apple devices use their native SF Pro; everything else falls back to Inter. JetBrains Mono for code. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+</head>
+
+<body class="theme-dark">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
+  <!-- ==========================================================================
+       ICON SPRITE (inline — no CDN). Use: <svg class="icon" aria-hidden="true"><use href="#i-name"/></svg>
+       ========================================================================== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+      <symbol id="i-branch" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></symbol>
+      <symbol id="i-terminal" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></symbol>
+      <symbol id="i-activity" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+      <symbol id="i-chevron-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ==========================================================================
+       NAVBAR (glass) + full-screen mobile menu
+       ========================================================================== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#top" aria-label="Karthikeyan S — back to top">
+        <span class="nav__mark" aria-hidden="true">K</span><span>Karthikeyan S</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav__right">
+        <a class="btn btn--blue btn--xs" href="Karthikeyan_Resume.pdf" download="Karthikeyan_Resume.pdf" data-resume-download aria-label="Download resume">
+          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span class="nav__cta-label">Download Resume</span>
+        </a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" aria-label="Menu">
+    <nav class="menu__links" aria-label="Mobile">
+      <a href="#about">About</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn--blue btn--lg menu__cta" href="Karthikeyan_Resume.pdf" download="Karthikeyan_Resume.pdf" data-resume-download>
+      <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Download Resume
+    </a>
+  </div>
+
+  <main id="main">
+
+    <!-- ========================================================================
+         HERO
+         ======================================================================== -->
+    <section class="hero theme-dark" id="top" aria-labelledby="hero-title" data-hero>
+      <div class="hero__bg" aria-hidden="true">
+        <span class="orb orb--blue"></span><span class="orb orb--purple"></span>
+        <span class="orb orb--pink"></span><span class="orb orb--orange"></span>
+        <span class="hero__grid"></span>
+      </div>
+
+      <div class="hero__copy">
+        <!-- Your photo: replace assets/profile-sm.jpg (square headshot) and assets/profile.jpg (portrait) -->
+        <div class="hero-avatar hero-in" style="--i:0"><span class="hero-avatar__ring"><img src="assets/profile-sm.jpg" alt="Portrait of Karthikeyan Shanmugaraj" width="104" height="104" fetchpriority="high" decoding="async"></span></div>
+
+        <p class="pill-badge hero-in" style="--i:1"><span class="pulse-dot" aria-hidden="true"></span>Available for Automation &amp; QA Leadership Roles</p>
+
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero-in" style="--i:1">Karthikeyan</span>
+          <span class="hero-in grad-text grad-text--anim" style="--i:2">Shanmugaraj</span>
+        </h1>
+
+        <p class="hero__role hero-in" style="--i:3">Automation Engineer &amp; Playwright Framework Architect</p>
+
+        <p class="hero__lead hero-in" style="--i:4">
+          I design and lead end-to-end test automation for enterprise insurance platforms —
+          Playwright (TypeScript) frameworks, Azure DevOps CI/CD integration, and regression suites that
+          stay fast and trustworthy at scale — accelerated with AI-assisted authoring and self-healing locators.
+        </p>
+
+        <div class="hero__cta hero-in" style="--i:5">
+          <!-- Opens the PDF preview modal (script.js); falls back to opening the PDF in a new tab -->
+          <a class="btn btn--blue btn--lg btn--magnetic" href="Karthikeyan_Resume.pdf" target="_blank" rel="noopener" data-resume-open>View Resume</a>
+          <a class="link-cta" href="#expertise">Explore work <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Decorative product-style visual (illustrative output, not live data) -->
+      <div class="hero__stage hero-in" style="--i:6" aria-hidden="true">
+        <div class="window hero__window" data-tilt>
+          <div class="window__bar"><i></i><i></i><i></i><span>regression · shard 1/4</span></div>
+          <div class="window__body">
+            <div class="t-line t-cmd" style="--n:0"><b class="t-prompt">$</b><span>npx bddgen &amp;&amp; npx playwright test --grep @regression</span></div>
+            <div class="t-line" style="--n:1"><b class="t-pass">✓</b><span>Fee contract · New business</span><em>DE</em></div>
+            <div class="t-line" style="--n:2"><b class="t-pass">✓</b><span>Policy contract · Endorsement</span><em>BE</em></div>
+            <div class="t-line" style="--n:3"><b class="t-pass">✓</b><span>Fee contract · Renewal</span><em>NL</em></div>
+            <div class="t-line" style="--n:4"><b class="t-heal">↻</b><span>Locator healed automatically</span><em class="em-purple">self-heal</em></div>
+            <div class="t-line" style="--n:5"><b class="t-pass">✓</b><span>Policy contract · Cancellation</span><em>DE</em></div>
+            <div class="t-line" style="--n:6"><b class="t-pass">✓</b><span>Client statement PDF · EN / DE / FR / NL</span></div>
+            <div class="t-line t-sum" style="--n:7"><b class="t-pass">●</b><span>4 shards · 290 scenarios<i class="t-cursor"></i></span></div>
+          </div>
+        </div>
+
+        <div class="float float--a" style="--tone:linear-gradient(135deg,#BF5AF2,#FF375F);--depth:26;--bd:0s"><span class="float__icon"><svg class="icon"><use href="#i-sparkles"/></svg></span><span><b>AI-drafted</b><small>Gherkin · steps · locators</small></span></div>
+        <div class="float float--b" style="--tone:linear-gradient(135deg,#0A84FF,#5E5CE6);--depth:-20;--bd:-2s"><span class="float__icon"><svg class="icon"><use href="#i-layers"/></svg></span><span><b>290 scenarios</b><small>37 features</small></span></div>
+        <div class="float float--c" style="--tone:linear-gradient(135deg,#30D158,#00C7BE);--depth:18;--bd:-4s"><span class="float__icon"><svg class="icon"><use href="#i-refresh"/></svg></span><span><b>Self-healed</b><small>locator recovered</small></span></div>
+        <div class="float float--d" style="--tone:linear-gradient(135deg,#FF9F0A,#FF375F);--depth:-28;--bd:-1s"><span class="float__icon"><svg class="icon"><use href="#i-branch"/></svg></span><span><b>4 shards</b><small>Azure DevOps</small></span></div>
+      </div>
+      <p class="hero__caption hero-in" style="--i:7">Illustrative test-run output</p>
+    </section>
+
+    <!-- ========================================================================
+         ABOUT — scroll-highlighted statement, stats, tool marquee
+         ======================================================================== -->
+    <section class="section theme-dark about" id="about" data-nav="about" aria-labelledby="about-title">
+      <div class="narrow">
+        <p class="kicker k-blue reveal" id="about-title">About</p>
+        <p class="statement" data-words>
+          I design test automation that <strong class="hl-blue">scales</strong>. Playwright frameworks,
+          <strong class="hl-purple">Azure DevOps</strong> pipelines and <strong class="hl-pink">AI-assisted</strong>
+          workflows that keep enterprise regression fast, stable and trusted — across six insurance
+          applications and 90+ business flows.
+        </p>
+      </div>
+
+      <!-- Count-up stats. Edit data-count / data-prefix / data-suffix. -->
+      <div class="container">
+        <ul class="stats" data-stagger>
+          <li class="stat reveal"><span class="stat__num" data-count="750" data-suffix="+">750+</span><span class="stat__label">Test cases automated</span></li>
+          <li class="stat reveal"><span class="stat__num" data-count="90" data-suffix="+">90+</span><span class="stat__label">Business flows covered</span></li>
+          <li class="stat reveal"><span class="stat__num" data-count="60" data-prefix="~" data-suffix="%">~60%</span><span class="stat__label">Shorter regression cycle</span></li>
+          <li class="stat reveal"><span class="stat__num" data-count="3" data-prefix="~" data-suffix="×">~3×</span><span class="stat__label">Faster after Selenium → Playwright</span></li>
+          <li class="stat reveal"><span class="stat__num" data-count="40" data-prefix="~" data-suffix="%">~40%</span><span class="stat__label">Less authoring effort with AI</span></li>
+        </ul>
+      </div>
+
+      <div class="marquee reveal" aria-label="Tools and technologies" data-marquee>
+        <div class="marquee__track">
+          <ul class="marquee__group">
+            <li class="chip-tool">Playwright</li><li class="chip-tool">TypeScript</li><li class="chip-tool">playwright-bdd</li>
+            <li class="chip-tool">Cucumber</li><li class="chip-tool">Azure DevOps</li><li class="chip-tool">Claude AI</li>
+            <li class="chip-tool">GitHub Copilot</li><li class="chip-tool">Playwright MCP</li><li class="chip-tool">JavaScript</li>
+            <li class="chip-tool">Selenium</li><li class="chip-tool">Java</li><li class="chip-tool">Postman</li>
+            <li class="chip-tool">pdf-parse</li><li class="chip-tool">SheetJS</li><li class="chip-tool">SQL Server</li>
+            <li class="chip-tool">Azure Boards</li><li class="chip-tool">Azure Test Plans</li><li class="chip-tool">Git / GitHub</li>
+            <li class="chip-tool">Allure</li><li class="chip-tool">JUnit XML</li><li class="chip-tool">Xvfb</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container about__me reveal">
+       <figure class="portrait" data-tilt>
+        <img src="assets/profile.jpg" alt="Portrait of Karthikeyan Shanmugaraj" width="880" height="1140" loading="lazy" decoding="async">
+        <figcaption><strong>Karthikeyan S</strong><span>Automation Engineer · E2E Team Lead</span></figcaption>
+       </figure>
+       <div class="about__bio">
+        <p>4+ years designing end-to-end test automation for enterprise insurance applications — UI, regression, smoke and PDF/Excel validation, wired into Azure DevOps so feedback arrives in minutes, not days.</p>
+        <p>Today I lead a 3-member E2E team delivering across three concurrent projects for Aon. Self-healing locators, tag-based execution, parallel sharding and AI-assisted authoring are part of the everyday toolkit.</p>
+       </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         EXPERTISE — colourful bento
+         ======================================================================== -->
+    <section class="section theme-light" id="expertise" data-nav="expertise" aria-labelledby="expertise-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="kicker k-purple">Core expertise</p>
+          <h2 class="display" id="expertise-title">The craft behind<br><span class="grad-text">the green builds.</span></h2>
+        </header>
+
+        <div class="bento" data-stagger>
+
+          <!-- 1 · Test automation -->
+          <article class="tile tile--7 reveal">
+            <p class="kicker k-blue">Test automation</p>
+            <h3>Playwright frameworks that read like specs.</h3>
+            <p>Framework architecture with Playwright (TypeScript / JavaScript) and playwright-bdd — Page Object Model, fixtures, data-driven tests and tag-based execution. Selenium (Java) and API testing with Postman and HAR capture.</p>
+            <pre class="code" aria-label="Example Gherkin scenario"><code><span class="tok-tag">@smoke @regression</span>
+<span class="tok-kw">Feature:</span> Contract lifecycle
+  <span class="tok-kw">Scenario Outline:</span> Create a new business contract
+    <span class="tok-kw">Given</span> I am logged in as a <span class="tok-str">"&lt;role&gt;"</span>
+    <span class="tok-kw">When</span> I create a contract in <span class="tok-str">"&lt;country&gt;"</span>
+    <span class="tok-kw">Then</span> the contract status should be <span class="tok-str">"Active"</span></code></pre>
+            <div class="tags"><span class="tag">Playwright</span><span class="tag">TypeScript</span><span class="tag">playwright-bdd</span><span class="tag">Cucumber</span><span class="tag">Selenium</span><span class="tag">Postman</span><span class="tag">POM</span></div>
+          </article>
+
+          <!-- 2 · CI/CD -->
+          <article class="tile tile--5 tone-blue reveal">
+            <p class="kicker">CI/CD &amp; DevOps</p>
+            <h3>Pipelines that scale to four shards.</h3>
+            <p>Azure DevOps YAML pipelines for scheduled and on-demand smoke and regression runs on Windows and Linux agents across QA and UAT — with dynamic sharding, a failed-test re-run pass and merged reporting.</p>
+            <div class="shards" aria-hidden="true">
+              <div class="shard" style="--w:96%"><span>shard 1/4</span><i></i></div>
+              <div class="shard" style="--w:91%"><span>shard 2/4</span><i></i></div>
+              <div class="shard" style="--w:98%"><span>shard 3/4</span><i></i></div>
+              <div class="shard" style="--w:93%"><span>shard 4/4</span><i></i></div>
+            </div>
+            <div class="tags"><span class="tag">Azure DevOps</span><span class="tag">YAML</span><span class="tag">Parallel</span><span class="tag">Sharding</span></div>
+          </article>
+
+          <!-- 3 · AI (animated rainbow edge) -->
+          <article class="tile tile--8 tile--ai tile--3 reveal">
+            <div class="tile__split">
+              <div class="tile__col">
+                <p class="kicker grad-text grad-text--anim">AI-assisted testing</p>
+                <h3>AI drafts. Self-healing recovers.</h3>
+                <p>Claude AI, GitHub Copilot and Playwright MCP prompt templates for Gherkin, step definitions and locators — cutting new-script authoring effort by ~40%. Backed by a rule-based self-healing locator layer (8 recovery strategies, learning cache).</p>
+                <div class="tags"><span class="tag">Claude AI</span><span class="tag">Copilot</span><span class="tag">Playwright MCP</span><span class="tag">Prompt engineering</span><span class="tag">Self-healing</span></div>
+              </div>
+              <figure class="prompt-demo">
+                <div class="window prompt" aria-hidden="true">
+                  <div class="window__bar"><i></i><i></i><i></i><span>prompt → output</span></div>
+                  <div class="window__body">
+                    <p class="prompt__who c-purple">prompt</p>
+                    <p>Draft a Gherkin scenario and step definitions for “create a new business contract”. Reuse existing page objects and locators.</p>
+                    <p class="prompt__who c-green">output</p>
+                    <ul><li>✓ contract.feature — scenario outline</li><li>✓ contract.steps.ts — mapped to page objects</li><li>✓ locators — ready for self-healing</li></ul>
+                  </div>
+                </div>
+                <figcaption>Illustrative prompt workflow</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <!-- 4 · Enterprise delivery -->
+          <article class="tile tile--4 tile--4b tone-orange reveal">
+            <p class="kicker">Enterprise delivery</p>
+            <h3>Three projects. One team.</h3>
+            <p>Leading a 3-member E2E team across three concurrent Aon projects — six interconnected insurance applications, from new business through endorsement, renewal, cancellation and rebook.</p>
+            <div class="tags"><span class="tag">Team leadership</span><span class="tag">Aon</span><span class="tag">Insurance</span></div>
+          </article>
+
+          <!-- 5 · Validation & reporting -->
+          <article class="tile tile--6 reveal">
+            <p class="kicker k-pink">Validation &amp; reporting</p>
+            <h3>Every figure, verified.</h3>
+            <p>PDF and Excel validators for invoices, multilingual client statements and brokerage reports. Merged Cucumber HTML / JUnit reports with screenshots, video, trace and HAR — plus Teams alerts.</p>
+            <div class="tags"><span class="tag">pdf-parse</span><span class="tag">SheetJS</span><span class="tag">ExcelJS</span><span class="tag">JUnit XML</span><span class="tag">Teams alerts</span></div>
+          </article>
+
+          <!-- 6 · Certification -->
+          <article class="tile tile--6 tone-green reveal">
+            <p class="kicker"><span class="pulse-dot pulse-dot--light" aria-hidden="true"></span> Certified</p>
+            <h3>Playwright Automation Testing – Advanced Level</h3>
+            <p>Also: LambdaTest Playwright 101 &amp; 201, Playwright with TypeScript, Selenium with Java, Cucumber Framework, Postman API.</p>
+          </article>
+
+          <!-- 7 · Toolkit -->
+          <article class="tile tile--12 reveal">
+            <p class="kicker k-blue">Languages &amp; tooling</p>
+            <h3>The full toolkit.</h3>
+            <dl class="stack">
+              <div><dt>Languages</dt><dd class="tags"><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">Java</span><span class="tag">SQL</span></dd></div>
+              <div><dt>Tooling</dt><dd class="tags"><span class="tag">Azure DevOps</span><span class="tag">Git / GitHub</span><span class="tag">Azure Boards</span><span class="tag">Azure Test Plans</span><span class="tag">Allure</span><span class="tag">Nodemailer</span><span class="tag">SQL Server</span><span class="tag">Xvfb</span></dd></div>
+              <div><dt>AI</dt><dd class="tags"><span class="tag">Claude AI</span><span class="tag">GitHub Copilot</span><span class="tag">Playwright MCP</span><span class="tag">Prompt engineering</span></dd></div>
+              <div><dt>Practice</dt><dd class="tags"><span class="tag">E2E</span><span class="tag">Regression</span><span class="tag">Smoke</span><span class="tag">Integration</span><span class="tag">BDD</span></dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PROCESS — pinned scroll story (stacked list on phones / reduced motion)
+         ======================================================================== -->
+    <section class="section section--flush theme-dark process" id="process" data-nav="expertise" aria-labelledby="process-title">
+      <div class="narrow text-center process__head">
+        <p class="kicker k-purple reveal">How it flows</p>
+        <h2 class="display reveal" id="process-title">From one Gherkin line to a <span class="grad-text grad-text--anim">green dashboard.</span></h2>
+      </div>
+
+      <div class="story" data-story style="--steps:5">
+        <div class="story__sticky">
+          <ol class="story__nav" aria-hidden="true">
+            <li class="is-active"><span>01</span> Author</li><li><span>02</span> Generate</li><li><span>03</span> Execute</li><li><span>04</span> Scale</li><li><span>05</span> Report</li>
+          </ol>
+
+          <ol class="story__steps">
+            <!-- 01 -->
+            <li class="step is-active" style="--accent:#BF5AF2">
+              <div class="step__text">
+                <span class="step__num">01</span>
+                <h3>Author</h3>
+                <p>Business flows become Gherkin. AI-assisted prompt templates with Claude AI, Copilot and Playwright MCP draft the scenarios, step definitions and locators.</p>
+              </div>
+              <div class="step__visual"><div class="window" aria-hidden="true">
+                <div class="window__bar"><i></i><i></i><i></i><span>contract.feature</span></div>
+                <div class="window__body code-body"><span class="tok-tag">@smoke @regression</span>
+<span class="tok-kw">Scenario Outline:</span> Create a new contract
+  <span class="tok-kw">Given</span> I am logged in as <span class="tok-str">"&lt;role&gt;"</span>
+  <span class="tok-kw">When</span> I create a contract in <span class="tok-str">"&lt;country&gt;"</span>
+  <span class="tok-kw">Then</span> status is <span class="tok-str">"Active"</span>
+<span class="tok-ai">✦ drafted with AI assistance</span></div>
+              </div></div>
+            </li>
+            <!-- 02 -->
+            <li class="step" style="--accent:#0A84FF">
+              <div class="step__text">
+                <span class="step__num">02</span>
+                <h3>Generate</h3>
+                <p>playwright-bdd turns the feature files into Playwright specs — tag-based, data-driven and ready to run on any agent.</p>
+              </div>
+              <div class="step__visual"><div class="window" aria-hidden="true">
+                <div class="window__bar"><i></i><i></i><i></i><span>terminal</span></div>
+                <div class="window__body code-body"><b class="t-prompt">$</b> npx bddgen
+<span class="tok-str">✓</span> feature files → Playwright specs
+<b class="t-prompt">$</b> npx playwright test --grep @regression
+<span class="tok-tag">running 290 scenarios…</span></div>
+              </div></div>
+            </li>
+            <!-- 03 -->
+            <li class="step" style="--accent:#FF375F">
+              <div class="step__text">
+                <span class="step__num">03</span>
+                <h3>Execute</h3>
+                <p>Page objects drive the UI. When a locator drifts, the rule-based self-healing layer recovers with a fallback strategy — and remembers it for the next run.</p>
+              </div>
+              <div class="step__visual"><div class="window" aria-hidden="true">
+                <div class="window__bar"><i></i><i></i><i></i><span>run log</span></div>
+                <div class="window__body code-body"><span class="tok-str">✓</span> open contract form
+<span class="tok-warn">!</span> locator not found — trying fallback strategies
+<span class="tok-ai">↻</span> recovered · cached for next run
+<span class="tok-str">✓</span> submit contract
+<span class="tok-str">✓</span> status is "Active"</div>
+              </div></div>
+            </li>
+            <!-- 04 -->
+            <li class="step" style="--accent:#FF9F0A">
+              <div class="step__text">
+                <span class="step__num">04</span>
+                <h3>Scale</h3>
+                <p>Scenario-count-based sharding splits the run across 1–4 shards on self-hosted Azure DevOps agents, with a shared feature artifact and a failed-test re-run pass.</p>
+              </div>
+              <div class="step__visual"><div class="window" aria-hidden="true">
+                <div class="window__bar"><i></i><i></i><i></i><span>azure devops · shards</span></div>
+                <div class="window__body">
+                  <div class="shards shards--dark">
+                    <div class="shard" style="--w:96%"><span>shard 1/4</span><i></i></div>
+                    <div class="shard" style="--w:91%"><span>shard 2/4</span><i></i></div>
+                    <div class="shard" style="--w:98%"><span>shard 3/4</span><i></i></div>
+                    <div class="shard" style="--w:93%"><span>shard 4/4</span><i></i></div>
+                  </div>
+                  <p class="step__note">↻ failed-test re-run pass · merged results</p>
+                </div>
+              </div></div>
+            </li>
+            <!-- 05 -->
+            <li class="step" style="--accent:#30D158">
+              <div class="step__text">
+                <span class="step__num">05</span>
+                <h3>Report</h3>
+                <p>Merged Cucumber HTML/JSON and JUnit XML with screenshots, video, trace and HAR — plus Teams alerts, email and SQL Server audit logging.</p>
+              </div>
+              <div class="step__visual"><div class="window" aria-hidden="true">
+                <div class="window__bar"><i></i><i></i><i></i><span>results</span></div>
+                <div class="window__body">
+                  <div class="result-chips">
+                    <span>HTML</span><span>JUnit XML</span><span>Screenshots</span><span>Video</span><span>Trace</span><span>HAR</span>
+                  </div>
+                  <ul class="result-list"><li>✓ Teams alert sent</li><li>✓ Email report sent</li><li>✓ Audit log → SQL Server</li></ul>
+                </div>
+              </div></div>
+            </li>
+          </ol>
+
+          <div class="story__bar" aria-hidden="true"><i></i></div>
+        </div>
+      </div>
+      <p class="story__caption">Illustrative walkthrough of the framework — not live output.</p>
+    </section>
+
+    <!-- ========================================================================
+         PROJECTS — snap-scrolling highlights
+         Replace each  href="#"  with a real GitHub / case-study URL.
+         ======================================================================== -->
+    <section class="section theme-light projects" id="projects" data-nav="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section__head section__head--row reveal">
+          <div>
+            <p class="kicker k-orange">Featured projects</p>
+            <h2 class="display" id="projects-title">Get the <span class="grad-text">highlights.</span></h2>
+            <p class="lead">Delivered for enterprise insurance applications. Client source is private — architecture and impact are summarised on each card.</p>
+          </div>
+          <div class="scroller-nav" aria-label="Browse projects">
+            <button class="round-btn" type="button" data-scroller-prev aria-label="Previous project"><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+            <button class="round-btn" type="button" data-scroller-next aria-label="Next project"><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+          </div>
+        </header>
+      </div>
+
+      <div class="scroller" data-scroller tabindex="0" role="region" aria-label="Featured projects, scroll horizontally">
+
+        <article class="hl tone-blue">
+          <svg class="hl__bg icon" aria-hidden="true"><use href="#i-layers"/></svg>
+          <p class="hl__eyebrow">Flagship · Playwright BDD</p>
+          <h3>E2E Insurance Automation Suite</h3>
+          <p>290 scenarios across 37 features, 600+ step definitions and 46 page objects covering fee and policy contract lifecycles in Germany, Belgium and the Netherlands.</p>
+          <p class="hl__stack">Playwright · TypeScript · playwright-bdd · POM</p>
+          <div class="hl__foot">
+            <div class="hl__num">290</div><div class="hl__label">scenarios automated</div>
+            <div class="hl__links"><a class="pill-link" href="#"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a><a class="pill-link" href="#"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>Case study</a></div>
+          </div>
+        </article>
+
+        <article class="hl tone-orange">
+          <svg class="hl__bg icon" aria-hidden="true"><use href="#i-branch"/></svg>
+          <p class="hl__eyebrow">CI/CD · Azure DevOps</p>
+          <h3>Sharded CI/CD Pipeline</h3>
+          <p>Dynamic scenario-count sharding (1–4 shards) on four self-hosted agent pools with a shared feature artifact, failed-test re-run pass and headed Chrome under Xvfb.</p>
+          <p class="hl__stack">Azure DevOps · YAML · Sharding · Xvfb</p>
+          <div class="hl__foot">
+            <div class="hl__num">~60%</div><div class="hl__label">faster regression cycles</div>
+            <div class="hl__links"><a class="pill-link" href="#"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a><a class="pill-link" href="#"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>Case study</a></div>
+          </div>
+        </article>
+
+        <article class="hl tone-green">
+          <svg class="hl__bg icon" aria-hidden="true"><use href="#i-zap"/></svg>
+          <p class="hl__eyebrow">Stability · Locators</p>
+          <h3>Self-Healing Locator Layer</h3>
+          <p>A rule-based recovery layer with a learning cache that stabilises flaky UI tests, paired with Playwright MCP prompt templates that speed up authoring.</p>
+          <p class="hl__stack">TypeScript · Locators · Playwright MCP</p>
+          <div class="hl__foot">
+            <div class="hl__num">8</div><div class="hl__label">recovery strategies</div>
+            <div class="hl__links"><a class="pill-link" href="#"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a><a class="pill-link" href="#"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>Case study</a></div>
+          </div>
+        </article>
+
+        <article class="hl tone-ai">
+          <svg class="hl__bg icon" aria-hidden="true"><use href="#i-sparkles"/></svg>
+          <p class="hl__eyebrow">AI · Prompt engineering</p>
+          <h3>AI-Assisted Test Authoring</h3>
+          <p>Reusable prompt templates and Playwright MCP workflows, used with Claude AI and GitHub Copilot, to draft Gherkin scenarios, step definitions and locators.</p>
+          <p class="hl__stack">Claude AI · GitHub Copilot · Playwright MCP</p>
+          <div class="hl__foot">
+            <div class="hl__num grad-text grad-text--anim">~40%</div><div class="hl__label">less script-authoring effort</div>
+            <div class="hl__links"><a class="pill-link" href="#"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a><a class="pill-link" href="#"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>Case study</a></div>
+          </div>
+        </article>
+
+        <article class="hl tone-purple">
+          <svg class="hl__bg icon" aria-hidden="true"><use href="#i-file"/></svg>
+          <p class="hl__eyebrow">Validation · PDF &amp; Excel</p>
+          <h3>PDF &amp; Excel Validation Engine</h3>
+          <p>Validators built on pdf-parse and SheetJS that verify invoices, client statements and brokerage reports against calculated values.</p>
+          <p class="hl__stack">pdf-parse · SheetJS · ExcelJS</p>
+          <div class="hl__foot">
+            <div class="hl__num">4</div><div class="hl__label">statement languages (EN, DE, FR, NL)</div>
+            <div class="hl__links"><a class="pill-link" href="#"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a><a class="pill-link" href="#"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>Case study</a></div>
+          </div>
+        </article>
+
+        <article class="hl tone-cyan">
+          <svg class="hl__bg icon" aria-hidden="true"><use href="#i-activity"/></svg>
+          <p class="hl__eyebrow">Observability · Reporting</p>
+          <h3>Reporting &amp; Observability</h3>
+          <p>Merged Cucumber HTML/JSON and JUnit XML reports with Teams alerts, email, SQL Server audit logging and a run-history analyzer that surfaces flaky scenarios.</p>
+          <p class="hl__stack">Cucumber HTML · JUnit XML · Teams · SQL Server</p>
+          <div class="hl__foot">
+            <div class="hl__num">5</div><div class="hl__label">evidence types per run</div>
+            <div class="hl__links"><a class="pill-link" href="#"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a><a class="pill-link" href="#"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>Case study</a></div>
+          </div>
+        </article>
+
+        <article class="hl tone-pink">
+          <svg class="hl__bg icon" aria-hidden="true"><use href="#i-refresh"/></svg>
+          <p class="hl__eyebrow">Migration · Selenium → Playwright</p>
+          <h3>Selenium → Playwright Migration</h3>
+          <p>Migrated a legacy Selenium (Java) suite to Playwright, improving execution speed and long-term maintainability.</p>
+          <p class="hl__stack">Selenium · Java · Playwright · Migration</p>
+          <div class="hl__foot">
+            <div class="hl__num">~3×</div><div class="hl__label">faster execution</div>
+            <div class="hl__links"><a class="pill-link" href="#"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a><a class="pill-link" href="#"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>Case study</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         LIVE PROJECT & RESUME HUB (interactive tabs)
+         ======================================================================== -->
+    <section class="section theme-dark hub-section" id="hub" data-nav="projects" aria-labelledby="hub-title">
+      <div class="container">
+        <article class="hub reveal reveal--scale">
+          <header class="hub__head">
+            <div>
+              <p class="kicker k-green"><span class="pulse-dot" aria-hidden="true"></span> Live hub</p>
+              <h2 class="headline" id="hub-title">Live Project &amp; Resume Hub</h2>
+              <p class="lead">Inspect the flagship project, skim the documentation, or grab the resume — all in one place.</p>
+            </div>
+          </header>
+
+          <div class="seg" role="tablist" aria-label="Project and resume hub" data-seg>
+            <span class="seg__thumb" aria-hidden="true"></span>
+            <button class="seg__btn" role="tab" id="tab-overview" aria-selected="true" aria-controls="panel-overview" type="button">Overview</button>
+            <button class="seg__btn" role="tab" id="tab-docs" aria-selected="false" aria-controls="panel-docs" tabindex="-1" type="button">Documentation</button>
+            <button class="seg__btn" role="tab" id="tab-resume" aria-selected="false" aria-controls="panel-resume" tabindex="-1" type="button">Resume</button>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-overview" aria-labelledby="tab-overview" tabindex="0">
+            <ul class="facts">
+              <li style="--g:linear-gradient(180deg,#64D2FF,#0A84FF)"><b>290</b><span>scenarios</span></li>
+              <li style="--g:linear-gradient(180deg,#BF5AF2,#5E5CE6)"><b>37</b><span>feature files</span></li>
+              <li style="--g:linear-gradient(180deg,#FF375F,#BF5AF2)"><b>600+</b><span>step definitions</span></li>
+              <li style="--g:linear-gradient(180deg,#FF9F0A,#FF375F)"><b>46</b><span>page objects</span></li>
+              <li style="--g:linear-gradient(180deg,#30D158,#00C7BE)"><b>3</b><span>countries · DE, BE, NL</span></li>
+              <li style="--g:linear-gradient(180deg,#FFD60A,#FF9F0A)"><b>1–4</b><span>shards per run</span></li>
+            </ul>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-docs" aria-labelledby="tab-docs" tabindex="0" hidden>
+            <div class="docs">
+              <details open>
+                <summary>Framework design <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+                <ul>
+                  <li>Playwright + playwright-bdd + Cucumber (Gherkin) with a Page Object Model.</li>
+                  <li>Multi-debtor and multi-cover phases chained through property-file data handoff.</li>
+                  <li>Per-country behaviour modelled as strategies instead of inline conditionals.</li>
+                </ul>
+              </details>
+              <details>
+                <summary>Pipeline &amp; execution <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+                <ul>
+                  <li>Tag-based execution for smoke and regression across QA and UAT.</li>
+                  <li>Scenario-count-based sharding (1–4 shards) on four self-hosted agent pools.</li>
+                  <li>Shared feature artifact, intelligent retry and a failed-test re-run pass.</li>
+                </ul>
+              </details>
+              <details>
+                <summary>Reporting &amp; alerts <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+                <ul>
+                  <li>Merged Cucumber HTML/JSON and JUnit XML with screenshots, video, trace and HAR.</li>
+                  <li>Microsoft Teams alerts, Nodemailer emails and SQL Server audit logging.</li>
+                  <li>Run-history analyzer to spot flaky scenarios over time.</li>
+                </ul>
+              </details>
+              <details>
+                <summary>AI-assisted authoring <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+                <ul>
+                  <li>Prompt templates for Gherkin, step definitions and locator generation.</li>
+                  <li>GitHub Copilot, Claude AI and Playwright MCP — ~40% less authoring effort.</li>
+                </ul>
+              </details>
+              <!-- Swap href="#" for a link to your full documentation (Notion, GitHub wiki, PDF…) -->
+              <a class="link-cta" href="#">Open full documentation <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+            </div>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-resume" aria-labelledby="tab-resume" tabindex="0" hidden>
+            <div class="hub__resume">
+              <div>
+                <h3>Karthikeyan S — Resume</h3>
+                <p>One page: experience, projects, skills, awards and certifications. Preview it here or download the PDF.</p>
+              </div>
+              <div class="hub__actions">
+                <a class="btn btn--blue btn--magnetic" href="Karthikeyan_Resume.pdf" target="_blank" rel="noopener" data-resume-open><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg> Preview</a>
+                <a class="btn btn--ghost" href="Karthikeyan_Resume.pdf" download="Karthikeyan_Resume.pdf" data-resume-download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Download PDF</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         EXPERIENCE — timeline that draws itself on scroll
+         ======================================================================== -->
+    <section class="section theme-light experience" id="experience" data-nav="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="kicker k-green">Experience</p>
+          <h2 class="display" id="experience-title">Where I've <span class="grad-text">worked.</span></h2>
+          <p class="lead">Managing QA and Playwright automation frameworks across multiple enterprise projects for Aon.</p>
+        </header>
+
+        <ol class="timeline" data-timeline>
+          <!-- Current role -->
+          <li class="t-item reveal">
+            <span class="t-dot t-dot--live" aria-hidden="true"></span>
+            <div class="t-meta"><time>Jul 2022 — Present</time><span class="chip chip--green">Current</span></div>
+            <div class="t-card">
+              <h3>Automation Engineer <span class="muted">(E2E Team Lead)</span></h3>
+              <p class="t-org">QualityAI (formerly Qualitest) · Client: Aon · Bangalore, India</p>
+              <ul class="t-list">
+                <li>Lead a 3-member E2E automation team delivering across three concurrent Aon projects.</li>
+                <li>Architected a scalable framework with Playwright (TypeScript), Cucumber (BDD) and Page Object Model — 750+ test cases across 90+ business flows in six interconnected insurance applications.</li>
+                <li>Cut regression cycle time by ~60% by distributing Playwright sharding across 4 machines with tag-based execution and intelligent retries.</li>
+                <li>Built Azure DevOps YAML pipelines for scheduled and on-demand smoke and regression runs on Windows and Linux agents, across QA and UAT.</li>
+                <li>Migrated a legacy Selenium (Java) suite to Playwright — ~3× faster execution and better maintainability.</li>
+                <li>Automated PDF invoice and Excel report validation to verify financial figures across integrated systems.</li>
+                <li>Reduced new-feature script authoring effort by ~40% with GitHub Copilot, Claude AI and prompt templates.</li>
+              </ul>
+              <div class="tags"><span class="tag">Playwright</span><span class="tag">TypeScript</span><span class="tag">Cucumber BDD</span><span class="tag">Azure DevOps</span><span class="tag">Selenium</span><span class="tag">Claude AI</span><span class="tag">Copilot</span></div>
+            </div>
+          </li>
+
+          <!-- Awards. To add one: copy an <a class="award"> block and put the image in assets/awards/ -->
+          <li class="t-item reveal" id="awards">
+            <span class="t-dot t-dot--award" aria-hidden="true"></span>
+            <div class="t-meta"><time>2025 — 2026</time><span class="chip chip--orange">2 awards</span></div>
+            <div class="t-card">
+              <h3>Awards &amp; Recognition</h3>
+              <p class="t-org">Awarded by Qualitest — recognising dedication to the pursuit of excellence</p>
+              <div class="awards">
+                <a class="award award--highq" href="assets/awards/highq-award.jpg" target="_blank" rel="noopener" data-award-open data-title="HighQ Award — Qualitest, June 2026">
+                  <span class="award__thumb"><img src="assets/awards/highq-award.jpg" alt="" width="1240" height="1755" loading="lazy" decoding="async"></span>
+                  <span class="award__meta"><strong>HighQ Award</strong><span class="award__date">Jun 2026</span><span class="award__cta">View certificate <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></span>
+                </a>
+                <a class="award award--qstar" href="assets/awards/qstar-award.jpg" target="_blank" rel="noopener" data-award-open data-title="QStar Award — Qualitest, December 2025">
+                  <span class="award__thumb award__thumb--qstar"><img src="assets/awards/qstar-award.jpg" alt="" width="1240" height="1755" loading="lazy" decoding="async"></span>
+                  <span class="award__meta"><strong>QStar Award</strong><span class="award__date">Dec 2025</span><span class="award__cta">View certificate <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></span>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li class="t-item reveal">
+            <span class="t-dot" aria-hidden="true"></span>
+            <div class="t-meta"><time>2020 — 2022</time></div>
+            <div class="t-card t-card--compact">
+              <h3>M.Sc., Computer Science</h3>
+              <p class="t-org">PSG College of Arts and Science · Bharathidasan University · 85.17%</p>
+            </div>
+          </li>
+
+          <li class="t-item reveal">
+            <span class="t-dot" aria-hidden="true"></span>
+            <div class="t-meta"><time>2017 — 2020</time></div>
+            <div class="t-card t-card--compact">
+              <h3>B.Sc., Computer Science</h3>
+              <p class="t-org">Kamaraj College of Arts and Science · Manonmaniam Sundaranar University · 84.17%</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         RESUME PREVIEW & CONTACT
+         ======================================================================== -->
+    <section class="section theme-dark contact" id="contact" data-nav="contact" aria-labelledby="contact-title">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <div class="container">
+        <header class="section__head section__head--center reveal">
+          <p class="kicker k-pink">Resume &amp; contact</p>
+          <h2 class="display" id="contact-title">Let's build something <span class="grad-text grad-text--anim">reliable.</span></h2>
+          <p class="lead">Skim the summary, preview the PDF, or take the full resume with you.</p>
+        </header>
+
+        <div class="contact__grid">
+          <!-- Clean in-page summary of the resume -->
+          <article class="sheet reveal reveal--scale" aria-label="Resume summary" data-tilt>
+            <header class="sheet__head">
+              <h3>KARTHIKEYAN S</h3>
+              <p>Automation Test Engineer · Playwright (TypeScript) · Cucumber BDD · Selenium · Azure DevOps CI/CD</p>
+              <p class="sheet__loc">Bangalore, India</p>
+            </header>
+
+            <h4 class="sheet__h">Summary</h4>
+            <p>Automation Test Engineer with 4+ years of experience designing E2E test automation frameworks for enterprise insurance applications. Leads a 3-member E2E team across three concurrent client projects; automated 750+ test cases across 90+ business flows covering UI, regression, smoke and PDF/Excel validation.</p>
+
+            <h4 class="sheet__h">Core skills</h4>
+            <div class="tags">
+              <span class="tag">Playwright</span><span class="tag">playwright-bdd</span><span class="tag">Selenium</span><span class="tag">Cucumber</span>
+              <span class="tag">TypeScript</span><span class="tag">Java</span><span class="tag">SQL</span><span class="tag">Azure DevOps</span>
+              <span class="tag">Sharding</span><span class="tag">Self-healing locators</span><span class="tag">pdf-parse</span><span class="tag">SheetJS</span>
+              <span class="tag">Claude AI</span><span class="tag">GitHub Copilot</span><span class="tag">Playwright MCP</span><span class="tag">Prompt engineering</span>
+            </div>
+
+            <h4 class="sheet__h">Experience</h4>
+            <p><strong>Automation Engineer (E2E Team Lead)</strong> — QualityAI (formerly Qualitest), client Aon · Jul 2022 – Present</p>
+            <ul>
+              <li>Reduced regression cycle time by ~60% with 4-machine Playwright sharding.</li>
+              <li>Migrated a Selenium (Java) suite to Playwright — ~3× faster execution.</li>
+              <li>Automated PDF and Excel validation of financial figures across systems.</li>
+            </ul>
+
+            <h4 class="sheet__h">Education, awards &amp; certifications</h4>
+            <p>M.Sc. Computer Science (85.17%) · B.Sc. Computer Science (84.17%) · QStar &amp; HighQ Awards (Qualitest) · Playwright Automation Testing – Advanced Level · LambdaTest Playwright 101 &amp; 201</p>
+
+            <a class="btn btn--blue sheet__cta" href="Karthikeyan_Resume.pdf" target="_blank" rel="noopener" data-resume-open><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg> Open full PDF preview</a>
+          </article>
+
+          <!-- Actions -->
+          <aside class="actions reveal" style="--d:120ms" aria-label="Resume download and contact">
+            <h3>Take it with you</h3>
+            <p>One page, always current.</p>
+            <a class="btn btn--blue btn--lg btn--block btn--magnetic" href="Karthikeyan_Resume.pdf" download="Karthikeyan_Resume.pdf" data-resume-download>
+              <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Download Full Resume (PDF)
+            </a>
+
+            <div class="copy-list">
+              <div class="copy-row">
+                <span class="copy-row__icon" style="--tone:linear-gradient(135deg,#0A84FF,#5E5CE6)"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+                <div class="copy-row__text">
+                  <span class="copy-row__label">Email</span>
+                  <a class="copy-row__value" href="mailto:karthikeyanautomationengineer@gmail.com" data-link="email">karthikeyanautomationengineer@gmail.com</a>
+                </div>
+                <button class="icon-btn" type="button" data-copy="email" aria-label="Copy email address">
+                  <svg class="icon icon--copy" aria-hidden="true"><use href="#i-copy"/></svg><svg class="icon icon--done" aria-hidden="true"><use href="#i-check"/></svg>
+                </button>
+              </div>
+              <div class="copy-row">
+                <span class="copy-row__icon" style="--tone:linear-gradient(135deg,#BF5AF2,#FF375F)"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg></span>
+                <div class="copy-row__text">
+                  <span class="copy-row__label">LinkedIn</span>
+                  <a class="copy-row__value" href="https://www.linkedin.com/in/karthikeyan-s-automation" target="_blank" rel="noopener" data-link="linkedin">linkedin.com/in/karthikeyan-s-automation</a>
+                </div>
+                <button class="icon-btn" type="button" data-copy="linkedin" aria-label="Copy LinkedIn URL">
+                  <svg class="icon icon--copy" aria-hidden="true"><use href="#i-copy"/></svg><svg class="icon icon--done" aria-hidden="true"><use href="#i-check"/></svg>
+                </button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer theme-light">
+    <div class="container">
+      <p class="footer__note">Illustrative visuals on this page (test-run output, pipeline shards, prompt example) are for demonstration. Client source code is private; metrics are taken from my resume.</p>
+      <div class="footer__cols">
+        <div>
+          <h4>Explore</h4>
+          <a href="#about">About</a><a href="#expertise">Expertise</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#awards">Awards</a>
+        </div>
+        <div>
+          <h4>Resume</h4>
+          <a href="Karthikeyan_Resume.pdf" download="Karthikeyan_Resume.pdf" data-resume-download>Download PDF</a>
+          <a href="Karthikeyan_Resume.pdf" target="_blank" rel="noopener" data-resume-open>Preview</a>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <a href="#" data-link="github">GitHub</a>
+          <a href="https://www.linkedin.com/in/karthikeyan-s-automation" target="_blank" rel="noopener" data-link="linkedin">LinkedIn</a>
+          <a href="mailto:karthikeyanautomationengineer@gmail.com" data-link="email">Email</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© <span id="year">2026</span> Karthikeyan Shanmugaraj. Built with HTML, CSS &amp; vanilla JS.</p>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       DIALOGS (native <dialog>: focus trap + Esc built in)
+       ========================================================================== -->
+  <dialog class="modal" id="resume-modal" aria-labelledby="resume-modal-title">
+    <div class="modal__bar">
+      <h2 id="resume-modal-title">Resume — Karthikeyan S</h2>
+      <div class="modal__actions">
+        <a class="btn btn--blue btn--xs" href="Karthikeyan_Resume.pdf" download="Karthikeyan_Resume.pdf" data-resume-download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span class="nav__cta-label">Download</span></a>
+        <button class="round-btn round-btn--sm" type="button" data-modal-close aria-label="Close resume preview"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+      </div>
+    </div>
+    <iframe class="modal__frame" id="resume-frame" title="Resume PDF preview" loading="lazy"></iframe>
+    <p class="modal__hint">Preview not loading? <a href="Karthikeyan_Resume.pdf" target="_blank" rel="noopener" data-resume-download>Open or download the PDF</a>.</p>
+  </dialog>
+
+  <dialog class="modal modal--award" id="award-modal" aria-labelledby="award-modal-title">
+    <div class="modal__bar">
+      <h2 id="award-modal-title">Award certificate</h2>
+      <div class="modal__actions"><button class="round-btn round-btn--sm" type="button" data-modal-close aria-label="Close certificate"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+    </div>
+    <div class="modal__stage"><img class="modal__img" id="award-img" alt=""></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
